@@ -1,2 +1,2 @@
-import scapy
-send((IP(dst=sys.argv[1],src=sys.argv[2])/ICMP())*10000, iface=sys.argv[3])
+import sys, scapy
+send((IP(dst=sys.argv[1],src=sys.argv[2])/ICMP())*int(sys.argv[3]), iface=sys.argv[4])
