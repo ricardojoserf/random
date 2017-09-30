@@ -1,0 +1,9 @@
+vlan = 3
+port = 1 : untagged
+port = 2 : tagged
+port = 5 :untagged
+
+vlan = 2
+port = 3 : untagged
+port = 4 : tagged
+port = 5 : tagged
