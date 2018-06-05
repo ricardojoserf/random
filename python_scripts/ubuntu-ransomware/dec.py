@@ -20,14 +20,16 @@ def decrypt_(fname):
 
 
 def dec_files(dir_):
-	onlyfiles = [f for f in os.listdir(dir_) if os.path.isfile(os.path.join(dir_, f))]
-	for f in onlyfiles:
-		splitted = f.split(".")
-		if splitted[len(splitted)-1]=="enc":
-			file=os.path.join(dir_, f)
-			print "Decrypting",file,"..."
-			decrypt_(file)
-
+	try:
+		onlyfiles = [f for f in os.listdir(dir_) if os.path.isfile(os.path.join(dir_, f))]
+		for f in onlyfiles:
+			splitted = f.split(".")
+			if splitted[len(splitted)-1]=="enc":
+				file=os.path.join(dir_, f)
+				print "Decrypting",file,"..."
+				decrypt_(file)
+	except:
+		pass
 
 def loop(looped_dir):
 	create_key()
@@ -37,9 +39,8 @@ def loop(looped_dir):
 	for root,directories,filenames in os.walk(looped_dir):
 		for directory in directories:
 			dir=os.path.join(root, directory)
-			if directory not in excluded_dirs:
-				print "Entering",dir,"..."
-				dec_files(dir)
+			print "Entering",dir,"..."
+			dec_files(dir)
 	os.system("rm "+pkeyname)
 
 
