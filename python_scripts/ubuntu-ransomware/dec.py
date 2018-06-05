@@ -22,9 +22,11 @@ def decrypt_(fname):
 def dec_files(dir_):
 	onlyfiles = [f for f in os.listdir(dir_) if os.path.isfile(os.path.join(dir_, f))]
 	for f in onlyfiles:
-		file=os.path.join(dir_, f)
-		print "Decrypting",file,"..."
-		decrypt_(file)
+		splitted = f.split(".")
+		if splitted[len(splitted)-1]=="enc":
+			file=os.path.join(dir_, f)
+			print "Decrypting",file,"..."
+			decrypt_(file)
 
 
 def loop(looped_dir):

