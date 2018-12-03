@@ -1,17 +1,17 @@
-#Asterix protocol fuzzer program
+# Asterix protocol fuzzer program
 
 
 *ASTERIX is a standard for the exchange of air traffic services (ATS) information. It is developed and maintained by the European ATS organization Eurocontrol (https://en.wikipedia.org/wiki/ASTERIX_(ATC_standard)).*
 
 ----------------------------------------------------
 
-##Installation
+## Installation
 
 *pip install scapy*
 
 ----------------------------------------------------
 
-##Execution
+## Execution
 
 - Capture an Asterix packet with type *48* using Wireshark, TCPdump, scapy...
 
@@ -25,13 +25,13 @@
 
 ----------------------------------------------------
 
-### Example 
+## Examples 
 
 Fuzzing *theta* and *phi* values (bytes from 22 to 29):
 
 *python send_udp.py 300017fede204820004980*ρρρρ*40000*θθθθ*3e8e00006be 22 29*
 
 
-Replay attack:
+"Replay" attack (re-send the same packet in a loop):
 
 *python loop.py 300017fede20409b7e49805a0046000fff03e8e00007bf*
