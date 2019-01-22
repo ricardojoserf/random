@@ -11,4 +11,4 @@ python main.py -f FILE [-n NUMBER_COPIES] [-d DIRECTORY]  [-t THREADS]
 
 ## Testing different algorithms
 
-![Screenshot](images/images1.png)
+![Screenshot](images/image1.png)
