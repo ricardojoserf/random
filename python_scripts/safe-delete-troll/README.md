@@ -9,6 +9,6 @@ Override free space with the file you want. Example: Before giving back your wor
 python main.py -f FILE [-n NUMBER_COPIES] [-d DIRECTORY]  [-t THREADS]
 ```
 
-## Testing different algorithms
+## Testing different ways to do this
 
 ![Screenshot](images/image1.png)
