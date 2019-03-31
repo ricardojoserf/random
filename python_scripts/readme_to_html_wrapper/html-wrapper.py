@@ -9,22 +9,7 @@ def create_new_file():
 	count_table = 0
 	
 	#  while read p; do   echo 'new_file_lines.append('\'"$p"\'')'; done < a
-	new_file_lines.append('<!doctype html>')
-	new_file_lines.append('<html lang="en">')
-	new_file_lines.append('')
-	new_file_lines.append('<head>')
-	new_file_lines.append('<meta charset="UTF-8">')
-	new_file_lines.append('<meta name="viewport" content="width=device-width, initial-scale=1">')
-	new_file_lines.append('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">')
-	new_file_lines.append('<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>')
-	new_file_lines.append('<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>')
-	new_file_lines.append('')
-	new_file_lines.append('</head>')
-	new_file_lines.append('')
-	new_file_lines.append('<body>')
-	new_file_lines.append('<div class="container">')
-	new_file_lines.append('')
-	new_file_lines.append('')
+	new_file_lines.append('<br><div id="particles-js-background" class="container" ng-controller="mainController"> </div><div id="overlay" class="container" ng-controller="mainController"><br><br>')
 
 	for l in lines:
 		bold_counter = 0
@@ -78,12 +63,8 @@ def create_new_file():
 
 		new_file_lines.append(new_line)
 	
-	new_file_lines.append('')
-	new_file_lines.append('')
-	new_file_lines.append('')
-	new_file_lines.append('</div>')
-	new_file_lines.append('</body>')
-	new_file_lines.append('</html>')
+	new_file_lines.append('<br><br><br><br><script src="visual/particles/particles.js"></script><script src="visual/particles/particles_style_2.js"></script>')
+	
 
 	#print '\n'.join(new_file_lines)
 	open(sys.argv[2],'w').write('\n'.join(new_file_lines))
