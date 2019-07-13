@@ -6,7 +6,7 @@ list_opc = list_opc[::-1]
 
 
 def get_vals(num):
-	#print "NUM: ", num
+	print "NUM: ", num
 	if num < 96:
 		num += 256 
 	arr = []
@@ -16,18 +16,18 @@ def get_vals(num):
 		#print "32 + 32 +", rest
 		arr = [hex(32), hex(32), hex(rest)]
 
-	elif num >= 159 and num < 255:
-		rest = num - 106
+	elif num >= 159 and num < 232:
+		rest = num - 100
 		#print "53 + 53 +", rest
-		arr = [hex(53), hex(53), hex(rest)]
+		arr = [hex(50), hex(50), hex(rest)]
 
-	elif num >= 255 and num < 303:
-		rest = num - 128
+	elif num >= 232 and num < 326:
+		rest = num - 200
 		#print "64 + 64 +", rest
-		arr = [hex(64), hex(64), hex(rest)]
+		arr = [hex(100), hex(100), hex(rest)]
 
-	elif num >= 303:
-		rest = num - 128
+	elif num >= 326:
+		rest = num - 256
 		#print "128 + 128 +", rest
 		arr = [hex(128), hex(128), hex(rest)]
 	#print arr
@@ -59,6 +59,15 @@ for arr in final_arr:
 	text1 += arr[1].replace("0x","")
 	text2 += arr[2].replace("0x","")
 
+print
 print text0
 print text1
 print text2
+print
+
+for arr in final_arr:
+	for el in arr:
+		el_dec = int(el.replace("0x",""),16)
+		if el_dec < 32 or el_dec >= 128:
+			print "Problem with ",el
+		
