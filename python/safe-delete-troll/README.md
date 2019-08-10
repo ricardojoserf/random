@@ -1,6 +1,6 @@
 # Troll safe delete
 
-Override free space with the file you want. Example: Before giving back your work laptop, delete everything and fill the hard drive with your CV 
+Overwrite free space with the file you want. Example: Before giving back your work laptop, delete everything and fill the hard drive with your CV 
 
 
 ## Usage
