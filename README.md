@@ -1,3 +1,3 @@
-# random-scripts
+# random
 
-Scripts aleatorios que me viene bien tener a mano.
+Random scripts and programs
