@@ -1,3 +1,4 @@
+# Source: https://docs.docker.com/engine/examples/running_ssh_service/
 FROM i386/ubuntu:16.04
 RUN apt-get update -y
 RUN apt-get install -y openssh-server
