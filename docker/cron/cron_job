@@ -1,0 +1,1 @@
+* * * * * echo `date` > /root/time.txt
