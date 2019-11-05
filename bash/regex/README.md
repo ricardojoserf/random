@@ -7,3 +7,8 @@ cat a | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*" | tr '[:upper:]' '[:lower:]
 ## All to lowercase
 
 cat a | tr '[:upper:]' '[:lower:]'
+
+
+## Gobuster
+
+gobuster dir -r -k -u https://oney.fr -w ../dict/content_discovery_all.txt --wildcard
