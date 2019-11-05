@@ -11,4 +11,4 @@ cat a | tr '[:upper:]' '[:lower:]'
 
 ## Gobuster
 
-gobuster dir -r -k -u https://oney.fr -w ../dict/content_discovery_all.txt --wildcard
+gobuster dir -r -k -u URL -w ../dict/content_discovery_all.txt --wildcard
