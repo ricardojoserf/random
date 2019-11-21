@@ -1,0 +1,3 @@
+pytesseract==0.1.7
+image==1.5.17
+pyexifinfo==0.4.0
