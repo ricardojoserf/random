@@ -84,3 +84,12 @@ Kill all docker images
 ```
 for i in $(docker ps -a | cut -d " " -f 1 | grep -v CON); do echo $i; docker rm $i; done
 ```
+
+
+# Windows cli
+
+## List files recursive
+
+```
+dir /s /b /o:gn
+```
