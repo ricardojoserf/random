@@ -8,6 +8,14 @@ cat a | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*" | sort -u
 cat a | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*" | tr '[:upper:]' '[:lower:]' | sort -u
 ```
 
+
+**Extract strings of length 32**
+
+```
+grep -oP "\b(\w{32})\b" 
+```
+
+
 # tr
 
 **Upper -> lowercase**
@@ -20,6 +28,7 @@ cat a | tr '[:upper:]' '[:lower:]'
 ```
 cat a | tr '[:lower:]' '[:upper:]'
 ```
+
 
 
 # Directory listing
