@@ -1,0 +1,8 @@
+.git
+.svn
+robots.txt
+web.xml
+.bash_history
+.bashrc
+admin
+manager/html
