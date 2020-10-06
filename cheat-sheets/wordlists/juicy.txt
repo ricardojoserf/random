@@ -1,8 +1,14 @@
-.git
-.svn
+.git/HEAD
+.svn/entries
+.svn/wc.db
 robots.txt
 web.xml
 .bash_history
 .bashrc
+LICENSE.txt
+backup.zip
+Trace.axd
+jmx-console
 admin
 manager/html
+wp-admin
