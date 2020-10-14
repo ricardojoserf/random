@@ -107,3 +107,11 @@ dir /s /b /o:gn
 ```
 dir *.chm /s /p
 ```
+
+## Ntds.dit to user:pass
+
+```
+hashcat -m 1000 ntds.dit > res.txt
+
+for i in $(cat res.txt); do ntlm=$(echo $i | cut -d ":" -f 1); pass=$(echo $i | cut -d ":" -f 2); user=$(cat ntds.dit | grep $ntlm | cut -d ":" -f 1); echo $user $pass; done | sort -u > userpass.txt
+```
